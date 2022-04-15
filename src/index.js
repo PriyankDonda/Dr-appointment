@@ -15,6 +15,9 @@ app.use(adminRouter)
 app.use(patientRouter)
 app.use(doctorRouter)
 
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('../client/public'))
+}
 
 app.listen(port, () => {
     console.log('server is up on port ' + port)
