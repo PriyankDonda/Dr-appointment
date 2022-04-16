@@ -67,7 +67,7 @@ function PatientBookA() {
       // setTimeout(() => { fetchdata(); }, 3000);
       
       dispatch({ type: "USER", payload: true })
-      setSchedule([...data.schedules])
+      setSchedule(data.schedules)
       console.log('schedules data : ', schedules)
       // setFilter([...data])
       
