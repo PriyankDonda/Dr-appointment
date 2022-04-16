@@ -48,7 +48,7 @@ function PatientBookA() {
       })
 
       let data = await res.json()
-      console.log(' data :: ',data)
+      // console.log(' data :: ',data)
 
       if (res.status !== 200) {
         throw new Error(res.error)
@@ -57,10 +57,13 @@ function PatientBookA() {
       setpatient(data.patient)
       // console.log(patient)
       data = data.schedules
-      const datas = data.map((data) => {
-        const temp = getschedule(data._id)
-        return temp
-      })
+      async function fetchdata() {
+        const datas = data.map((data) => {
+          const temp = await getschedule(data._id)
+          return temp
+        })
+      }
+      fetchdata();
       // console.log('schedules data : ', schedules)
 
       dispatch({ type: "USER", payload: true })
