@@ -64,7 +64,7 @@ function PatientBookA() {
           return temp
         })
       }
-      setTimeout(() => { fetchdata(); }, 2000);
+      setTimeout(() => { fetchdata(); }, 3000);
       console.log('schedules data : ', schedules)
 
       dispatch({ type: "USER", payload: true })
