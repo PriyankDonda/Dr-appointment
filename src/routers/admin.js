@@ -79,6 +79,12 @@ router.patch('/admin/Profile', auth, async (req, res) => {
     try {
         // const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         const admin = await Admin.findById(req.admin._id)
+        if(req.body.password===''){
+            let temp=updates.filter((update)=>{
+                return update!=='password'
+            })
+            updates=temp
+        }
         updates.forEach((update) => {
             admin[update] = req.body[update]
         })
@@ -145,6 +151,12 @@ router.patch('/admin/doctor/:id', auth, async (req, res) => {
     try {
         // const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true })
         const doctor = await Doctor.findById(req.params.id)
+        if(req.body.password===''){
+            let temp=updates.filter((update)=>{
+                return update!=='password'
+            })
+            updates=temp
+        }
         updates.forEach((update) => {
             doctor[update] = req.body[update]
         })
