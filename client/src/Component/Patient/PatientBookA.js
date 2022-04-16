@@ -72,18 +72,19 @@ function PatientBookA() {
       // setFilter([...schedules])
       // console.log('schedules filter : ', filter)
 
-      let pages = Math.ceil(data.length / limit)
-      let pagearr = []
-      for (let i = 1; i <= pages; i++) {
-        pagearr.push(i)
-      }
-      setPages(pagearr)
-      let si = (currpage - 1) * limit
-      let ei = si + limit
+      // let pages = Math.ceil(data.length / limit)
+      // let pagearr = []
+      // for (let i = 1; i <= pages; i++) {
+      //   pagearr.push(i)
+      // }
+      // setPages(pagearr)
+      // let si = (currpage - 1) * limit
+      // let ei = si + limit
+      
       // let filterArr = appointments.slice(si, ei)
       // setFilter([...filterArr])
       // console.log('pages', pages)
-      console.log('updated....')
+      // console.log('updated....')
     } catch (e) {
       console.log('error : ', e)
       navigate('/patient/login')
