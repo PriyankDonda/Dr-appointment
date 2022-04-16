@@ -91,7 +91,8 @@ function PatientBookA() {
   }
 
   useEffect(() => {
-    await checklogedin()
+    checklogedin()
+    setTimeout( ()=>{ }, 2000);
   }, [])
 
   useEffect(() => {
