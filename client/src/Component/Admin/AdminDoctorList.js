@@ -142,7 +142,8 @@ function AdminDoctorList() {
       let temp = doctors.filter((data) => {
         let name = data.name.toLowerCase()
         let speciality = data.speciality.toLowerCase()
-        return name.includes(search.toLowerCase()) || speciality.includes(search.toLowerCase())
+        let status = data.status === true ? 'active' : 'inactive'
+        return name.includes(search.toLowerCase()) || speciality.includes(search.toLowerCase()) || status.includes(search.toLowerCase())
       })
       setFilter([...temp])
     }

@@ -64,7 +64,7 @@ function AdminProfile() {
           "Content-Type": "application/json"
         },
         credentials: "include",
-        body: JSON.stringify({ name: name, email: email, hospital_name: hName, hospital_address: address, hospital_contact_no: phone_no })
+        body: JSON.stringify({ name: name, email: email, password, hospital_name: hName, hospital_address: address, hospital_contact_no: phone_no })
       })
       if (res.status !== 200) {
         window.alert("Invalid Data")

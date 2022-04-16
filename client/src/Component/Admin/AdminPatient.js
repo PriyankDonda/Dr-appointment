@@ -82,7 +82,8 @@ function AdminPatient() {
         let name = data.first_name.toLowerCase()
         let lname = data.last_name.toLowerCase()
         let address = data.address.toLowerCase()
-        return name.includes(search.toLowerCase()) || lname.includes(search.toLowerCase()) || address.includes(search.toLocaleLowerCase())
+        let gender = dat.gender.toLowerCase()
+        return name.includes(search.toLowerCase()) || lname.includes(search.toLowerCase()) || address.includes(search.toLowerCase()) || gender.includes(search.toLowerCase())
       })
       setFilter([...temp])
     }

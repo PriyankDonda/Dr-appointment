@@ -176,9 +176,9 @@ function AdminDoctorSchedule() {
                           <td>{schedule.end_time}</td>
                           <td>{schedule.average_time} Minute</td>
                           <td>{
-                            // schedule.status === true ?
+                            schedule.status === true ?
                               <button type="button" class="btn btn-primary col-10" > Active </button>
-                              // : <button type="button" class="btn btn-danger col-10" >InActive</button>
+                              : <button type="button" class="btn btn-danger col-10" >InActive</button>
                               // <button type="button" class="btn btn-primary col-10" onClick={()=>updateStatus(schedule._id,schedule.status)}> Active </button>
                               // : <button type="button" class="btn btn-danger col-10" onClick={()=>updateStatus(schedule._id,schedule.status)}>InActive</button>
                           }</td>
