@@ -58,13 +58,13 @@ function PatientBookA() {
       // console.log(patient)
       data = data.schedules
       const datas = []
-      fetchdata = async(() => {
+      fetchdata = async () =>{
         datas = data.map((data) => {
           const temp = getschedule(data._id)
           return temp
         })
-      })
-      fetchdata();
+      }
+      setTimeout(() => { fetchdata(); }, 2000);
       console.log('schedules data : ', datas)
 
       dispatch({ type: "USER", payload: true })
@@ -92,7 +92,7 @@ function PatientBookA() {
 
   useEffect(() => {
     checklogedin()
-    // setTimeout(() => { }, 2000);
+    setTimeout(() => { }, 2000);
   }, [])
 
   useEffect(() => {
