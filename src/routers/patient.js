@@ -123,7 +123,7 @@ router.get('/patient/book-appoinments',patientAuth, async (req,res) => {
             filledArray[i] =  schedules[i]
         }
 
-        res.send({schedules,patient:req.patient})
+        res.send({schedules:filledArray,patient:req.patient})
         // console.log(schedules)
     }catch(e){
         res.send(500).send(e);
