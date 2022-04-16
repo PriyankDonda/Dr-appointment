@@ -10,7 +10,11 @@ const path = require('path')
 const app = express()
 const port = process.env.PORT || 3000
 
-// app.use(express.static(path.join(__dirname + "/src")))
+app.use(express.static(path.join(__dirname + "../client/build")))
+app.get('*', (req,res)=>{
+    // res.sendFile('index.html', { root: path.join(__dirname, '../client/build') });
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+})
 
 app.use(express.json())
 app.use(cookieparser())
@@ -20,9 +24,9 @@ app.use(doctorRouter)
 
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static(__dirname,'../client/build'))
-    app.get('*',(req,res)=>{
-        res.sendFile('index.html', { root: path.join(__dirname, '../client/build') });
-        // req.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
+    app.get('*', (req,res)=>{
+        // res.sendFile('index.html', { root: path.join(__dirname, '../client/build') });
+        res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
     })
 }
 
