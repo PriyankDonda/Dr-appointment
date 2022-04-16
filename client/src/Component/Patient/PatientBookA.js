@@ -58,12 +58,12 @@ function PatientBookA() {
       // console.log(patient)
       data = data.schedules
       const datas = []
-      async function fetchdata() {
+      fetchdata = async(() => {
         datas = await data.map((data) => {
           const temp = getschedule(data._id)
           return temp
         })
-      }
+      })
       fetchdata();
       console.log('schedules data : ', datas)
 
@@ -92,7 +92,7 @@ function PatientBookA() {
 
   useEffect(() => {
     checklogedin()
-    setTimeout( ()=>{ }, 2000);
+    // setTimeout(() => { }, 2000);
   }, [])
 
   useEffect(() => {
@@ -129,12 +129,12 @@ function PatientBookA() {
 
   return (
     <>
-    {/* {console.log(schedules)} */}
+      {/* {console.log(schedules)} */}
       <div className='container-box'>
         <div class="card shadow">
-          <div class="card-header" style={{display:'flex'}}>
+          <div class="card-header" style={{ display: 'flex' }}>
             Doctor Schedules List
-            <i class="fa-solid fa-arrows-rotate" onClick={()=>setFilter(schedules)} style={{marginLeft:'auto',marginTop:'4px',cursor:'pointer'}}></i>
+            <i class="fa-solid fa-arrows-rotate" onClick={() => setFilter(schedules)} style={{ marginLeft: 'auto', marginTop: '4px', cursor: 'pointer' }}></i>
           </div>
           <div class="card-body">
             <div class="container">
@@ -189,7 +189,7 @@ function PatientBookA() {
                               Launch demo modal
                             </button> */}
                             <button type="button" class="btn btn-primary action-button" onClick={() => setCurrentSchedule(schedule)} onClose={() => setCurrentSchedule({})}>Get Appointment</button>
-                            {currentSchedule._id === schedule._id ? <PatientMakeA data={currentSchedule} patient={patient} onClose={changeCurrentSchedule} updateDashboard={checklogedin}/> : null}
+                            {currentSchedule._id === schedule._id ? <PatientMakeA data={currentSchedule} patient={patient} onClose={changeCurrentSchedule} updateDashboard={checklogedin} /> : null}
                           </div></td>
                         </tr>
                       ))
