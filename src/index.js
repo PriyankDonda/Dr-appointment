@@ -23,7 +23,7 @@ app.use(patientRouter)
 app.use(doctorRouter)
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(__dirname,'../client/build'))
+    app.use(express.static(path.join(__dirname,'../client/build')))
     app.get('*', (req,res)=>{
         // res.sendFile('index.html', { root: path.join(__dirname, '../client/build') });
         res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))
