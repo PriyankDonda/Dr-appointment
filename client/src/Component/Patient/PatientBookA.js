@@ -58,8 +58,8 @@ function PatientBookA() {
       // console.log(patient)
       data = data.schedules
       async function fetchdata() {
-        const datas = data.map((data) => {
-          const temp = await getschedule(data._id)
+        const datas = await data.map((data) => {
+          const temp = getschedule(data._id)
           return temp
         })
       }
