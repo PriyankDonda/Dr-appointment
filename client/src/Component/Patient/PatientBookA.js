@@ -93,7 +93,6 @@ function PatientBookA() {
 
   useEffect(() => {
     checklogedin()
-    setTimeout(() => { }, 2000);
   }, [])
 
   useEffect(() => {
@@ -178,7 +177,7 @@ function PatientBookA() {
                     {
                       filter.map((schedule) => (
                         <tr key={schedule._id}>
-                          <td>{schedule.doctor.name}</td>
+                          <td>{schedule.name}</td>
                           <td>{schedule.doctor.degree}</td>
                           <td>{schedule.doctor.speciality}</td>
                           <td>{new Date(schedule.date).getDate()}-{new Date(schedule.date).getMonth()}-{new Date(schedule.date).getFullYear()}</td>
