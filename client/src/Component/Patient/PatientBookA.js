@@ -65,7 +65,7 @@ function PatientBookA() {
         })
       }
       setTimeout(() => { fetchdata(); }, 2000);
-      console.log('schedules data : ', datas)
+      console.log('schedules data : ', schedules)
 
       dispatch({ type: "USER", payload: true })
       // setAppointmet([...data])
@@ -80,7 +80,7 @@ function PatientBookA() {
       // setPages(pagearr)
       // let si = (currpage - 1) * limit
       // let ei = si + limit
-      
+
       // let filterArr = appointments.slice(si, ei)
       // setFilter([...filterArr])
       // console.log('pages', pages)
