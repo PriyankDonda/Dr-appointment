@@ -18,23 +18,23 @@ function PatientBookA() {
   const [currentSchedule, setCurrentSchedule] = useState({})
   const changeCurrentSchedule = () => setCurrentSchedule({})
 
-  const getschedule = async (id) => {
-    const res = await fetch(`/patient/book-appoinments/${id}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      credentials: "include"
-    })
-    const data = await res.json()
-    const datas = schedules
-    datas.push(data)
-    setSchedule([...datas])
-    setFilter([...datas])
+  // const getschedule = async (id) => {
+  //   const res = await fetch(`/patient/book-appoinments/${id}`, {
+  //     method: "GET",
+  //     headers: {
+  //       Accept: "application/json",
+  //       "Content-Type": "application/json"
+  //     },
+  //     credentials: "include"
+  //   })
+  //   const data = await res.json()
+  //   const datas = schedules
+  //   datas.push(data)
+  //   setSchedule([...datas])
+  //   setFilter([...datas])
 
-    return data
-  }
+  //   return data
+  // }
 
   const checklogedin = async () => {
     try {
@@ -57,19 +57,19 @@ function PatientBookA() {
       setpatient(data.patient)
       // console.log(patient)
       data = data.schedules
-      let datas = []
-      const fetchdata = async () =>{
-        datas = data.map((data) => {
-          const temp = getschedule(data._id)
-          return temp
-        })
-      }
-      setTimeout(() => { fetchdata(); }, 3000);
-      console.log('schedules data : ', filter)
+      // let datas = []
+      // const fetchdata = async () =>{
+        // datas = data.map((data) => {
+        //   const temp = getschedule(data._id)
+        //   return temp
+        // })
+      // }
+      // setTimeout(() => { fetchdata(); }, 3000);
+      // console.log('schedules data : ', filter)
 
       dispatch({ type: "USER", payload: true })
-      // setAppointmet([...data])
-      // setFilter([...schedules])
+      setSchedule([...data])
+      // setFilter([...data])
       // console.log('schedules filter : ', filter)
 
       let pages = Math.ceil(data.length / limit)
@@ -81,8 +81,8 @@ function PatientBookA() {
       let si = (currpage - 1) * limit
       let ei = si + limit
 
-      // let filterArr = appointments.slice(si, ei)
-      // setFilter([...filterArr])
+      let filterArr = schedules.slice(si, ei)
+      setFilter([...filterArr])
       // console.log('pages', pages)
       // console.log('updated....')
     } catch (e) {
@@ -177,7 +177,7 @@ function PatientBookA() {
                     {
                       filter.map((schedule) => (
                         <tr key={schedule._id}>
-                          <td>{schedule.name}</td>
+                          <td>{schedule.doctor.name}</td>
                           <td>{schedule.doctor.degree}</td>
                           <td>{schedule.doctor.speciality}</td>
                           <td>{new Date(schedule.date).getDate()}-{new Date(schedule.date).getMonth()}-{new Date(schedule.date).getFullYear()}</td>

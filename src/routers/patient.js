@@ -116,6 +116,13 @@ router.post('/patient/appointments', patientAuth, async (req,res) => {
 router.get('/patient/book-appoinments',patientAuth, async (req,res) => {
     try{
         let schedules = await DoctorSchedule.find({})
+
+        let filledArray = new Array(schedules.length);
+        for(let i=0; i<schedules.length;i++){
+            await schedules[i].populate('doctor');
+            filledArray[i] =  schedules[i]
+        }
+
         res.send({schedules,patient:req.patient})
         // console.log(schedules)
     }catch(e){
