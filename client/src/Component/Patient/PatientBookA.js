@@ -65,10 +65,10 @@ function PatientBookA() {
         // })
       // }
       // setTimeout(() => { fetchdata(); }, 3000);
-      console.log('schedules data : ', schedules)
-
+      
       dispatch({ type: "USER", payload: true })
       setSchedule([...data])
+      console.log('schedules data : ', schedules)
       // setFilter([...data])
       
       let pages = Math.ceil(data.length / limit)
