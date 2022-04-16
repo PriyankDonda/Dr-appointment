@@ -65,21 +65,21 @@ function PatientBookA() {
         })
       }
       setTimeout(() => { fetchdata(); }, 3000);
-      console.log('schedules data : ', schedules)
+      console.log('schedules data : ', filter)
 
       dispatch({ type: "USER", payload: true })
       // setAppointmet([...data])
       // setFilter([...schedules])
       // console.log('schedules filter : ', filter)
 
-      // let pages = Math.ceil(data.length / limit)
-      // let pagearr = []
-      // for (let i = 1; i <= pages; i++) {
-      //   pagearr.push(i)
-      // }
-      // setPages(pagearr)
-      // let si = (currpage - 1) * limit
-      // let ei = si + limit
+      let pages = Math.ceil(data.length / limit)
+      let pagearr = []
+      for (let i = 1; i <= pages; i++) {
+        pagearr.push(i)
+      }
+      setPages(pagearr)
+      let si = (currpage - 1) * limit
+      let ei = si + limit
 
       // let filterArr = appointments.slice(si, ei)
       // setFilter([...filterArr])
