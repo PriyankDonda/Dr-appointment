@@ -57,7 +57,7 @@ function PatientBookA() {
       setpatient(data.patient)
       // console.log(patient)
       data = data.schedules
-      const datas = []
+      let datas = []
       const fetchdata = async () =>{
         datas = data.map((data) => {
           const temp = getschedule(data._id)
