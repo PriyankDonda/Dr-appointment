@@ -48,7 +48,7 @@ function PatientBookA() {
       })
 
       let data = await res.json()
-      // console.log(' data :: ',data)
+      console.log(' data :: ',data)
 
       if (res.status !== 200) {
         throw new Error(res.error)
