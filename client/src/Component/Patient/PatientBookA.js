@@ -45,46 +45,47 @@ function PatientBookA() {
           "Content-Type": "application/json"
         },
         credentials: "include"
-      })
+      }).then((res) => {
 
-      let data = await res.json()
-      // console.log(' data :: ',data)
+        let data = await res.json()
+        // console.log(' data :: ',data)
 
-      if (res.status !== 200) {
-        throw new Error(res.error)
-      }
+        if (res.status !== 200) {
+          throw new Error(res.error)
+        }
 
-      setpatient(data.patient)
-      // console.log(patient)
-      data = data.schedules
-      // let datas = []
-      // const fetchdata = async () =>{
+        setpatient(data.patient)
+        // console.log(patient)
+        data = data.schedules
+        // let datas = []
+        // const fetchdata = async () =>{
         // datas = data.map((data) => {
         //   const temp = getschedule(data._id)
         //   return temp
         // })
-      // }
-      // setTimeout(() => { fetchdata(); }, 3000);
-      
-      dispatch({ type: "USER", payload: true })
-      setSchedule([...data])
-      console.log('schedules data : ', schedules)
-      // setFilter([...data])
-      
-      let pages = Math.ceil(data.length / limit)
-      let pagearr = []
-      for (let i = 1; i <= pages; i++) {
-        pagearr.push(i)
-      }
-      setPages(pagearr)
-      let si = (currpage - 1) * limit
-      let ei = si + limit
-      
-      let filterArr = schedules.slice(si, ei)
-      setFilter([...filterArr])
-      console.log('schedules filter : ', filter)
-      // console.log('pages', pages)
-      // console.log('updated....')
+        // }
+        // setTimeout(() => { fetchdata(); }, 3000);
+
+        dispatch({ type: "USER", payload: true })
+        setSchedule([...data])
+        console.log('schedules data : ', schedules)
+        // setFilter([...data])
+
+        let pages = Math.ceil(data.length / limit)
+        let pagearr = []
+        for (let i = 1; i <= pages; i++) {
+          pagearr.push(i)
+        }
+        setPages(pagearr)
+        let si = (currpage - 1) * limit
+        let ei = si + limit
+
+        let filterArr = schedules.slice(si, ei)
+        setFilter([...filterArr])
+        console.log('schedules filter : ', filter)
+        // console.log('pages', pages)
+        // console.log('updated....')
+      })
     } catch (e) {
       console.log('error : ', e)
       navigate('/patient/login')
