@@ -8,7 +8,7 @@ function AdminLogin() {
 
     const navigate = useNavigate()
     const [email,setEmail]=useState('admin@gmail.com')
-    const [password,setPassword]=useState('12345678')
+    const [password,setPassword]=useState('')
     const loginUser= async (e) => {
         e.preventDefault()
         const res = await fetch('/admin/login', {

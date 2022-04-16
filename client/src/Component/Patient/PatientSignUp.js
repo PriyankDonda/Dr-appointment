@@ -9,10 +9,10 @@ function PatientSignUp() {
 
     const navigate = useNavigate()
     const [email, setEmail] = useState('p@gmail.com')
-    const [password, setPassword] = useState('12345678')
+    const [password, setPassword] = useState('')
     const [first_name, setFName] = useState('patient')
     const [last_name, setLName] = useState('testing')
-    const [dob, setDob] = useState(new Date('2002-5-8').toISOString().split('T')[0])
+    const [dob, setDob] = useState(new Date('2002-1-1').toISOString().split('T')[0])
     const [gender, setGender] = useState('Male')
     const [phone_no, setPhoneno] = useState('1234567890')
     const [maritial_status, setMStatus] = useState('Single')
