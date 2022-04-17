@@ -46,7 +46,7 @@ function PatientBookA() {
         },
         credentials: "include"
       }).then(res => {
-        res.json()
+        await res.json()
         if (res.status !== 200) {
           throw new Error(res.error)
         }
@@ -139,7 +139,7 @@ function PatientBookA() {
 
   return (
     <>
-      {console.log('react : ', schedules, '\n filter : ', filter)}
+      {console.log('react filter : ', filter)}
       <div className='container-box'>
         <div class="card shadow">
           <div class="card-header" style={{ display: 'flex' }}>
