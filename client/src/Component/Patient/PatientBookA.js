@@ -54,7 +54,7 @@ function PatientBookA() {
         throw new Error(res.error)
       }
 
-      setpatient(...data.patient)
+      setpatient(data.patient)
       console.log(patient)
       // data = data.schedules
       // let datas = []
