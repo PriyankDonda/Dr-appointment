@@ -45,16 +45,21 @@ function PatientBookA() {
           "Content-Type": "application/json"
         },
         credentials: "include"
-      }).then(res => res.json()).then(data => {
+      }).then(res => {
+        res.json()
+        if (res.status !== 200) {
+          throw new Error(res.error)
+        }
+      }).then(data => {
 
 
 
         // let data = await res.json()
         console.log(' data :: ', data)
 
-        if (res.status !== 200) {
-          throw new Error(res.error)
-        }
+        // if (res.status !== 200) {
+        //   throw new Error(res.error)
+        // }
 
         setpatient(data.patient)
         console.log(patient)
