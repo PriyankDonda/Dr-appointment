@@ -132,6 +132,10 @@ function PatientBookA() {
   return (
     <>
       {console.log('react : ',schedules,'\n filter : ',filter)}
+      {
+        !filter ? <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div> :
       <div className='container-box'>
         <div class="card shadow">
           <div class="card-header" style={{ display: 'flex' }}>
@@ -215,6 +219,7 @@ function PatientBookA() {
           </div>
         </div>
       </div>
+       }
     </>
   )
 }
