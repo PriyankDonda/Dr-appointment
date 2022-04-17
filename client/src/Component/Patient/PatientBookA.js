@@ -46,10 +46,10 @@ function PatientBookA() {
         },
         credentials: "include"
       }).then(res => {
-        await res.json()
         if (res.status !== 200) {
           throw new Error(res.error)
         }
+        res.json()
       }).then(data => {
 
 
