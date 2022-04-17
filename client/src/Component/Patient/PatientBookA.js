@@ -38,62 +38,54 @@ function PatientBookA() {
 
   const checklogedin = async () => {
     try {
-      fetch('/patient/book-appoinments', {
+      const res = await fetch('/patient/book-appoinments', {
         method: "GET",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
         },
         credentials: "include"
-      }).then(res => {
-        if (res.status !== 200) {
-          throw new Error(res.error)
-        }
-        res.json()
-      }).then(data => {
+      })
 
+      let data = await res.json()
+      console.log(' data :: ',data)
 
+      if (res.status !== 200) {
+        throw new Error(res.error)
+      }
 
-        // let data = await res.json()
-        console.log(' data :: ', data)
-
-        // if (res.status !== 200) {
-        //   throw new Error(res.error)
-        // }
-
-        setpatient(data.patient)
-        console.log(patient)
-        // data = data.schedules
-        // let datas = []
-        // const fetchdata = async () =>{
+      setpatient(data.patient)
+      console.log(patient)
+      // data = data.schedules
+      // let datas = []
+      // const fetchdata = async () =>{
         // datas = data.map((data) => {
         //   const temp = getschedule(data._id)
         //   return temp
         // })
-        // }
-        // setTimeout(() => { fetchdata(); }, 3000);
-
-        dispatch({ type: "USER", payload: true })
-        setSchedule([...data.schedules])
-        console.log('schedules : ', data.schedules)
-        console.log('schedules data : ', schedules)
-        // setFilter([...data])
-
-        let pages = Math.ceil(data.schedules.length / limit)
-        let pagearr = []
-        for (let i = 1; i <= pages; i++) {
-          pagearr.push(i)
-        }
-        setPages(pagearr)
-        let si = (currpage - 1) * limit
-        let ei = si + limit
-
-        let filterArr = schedules.slice(si, ei)
-        setFilter([...filterArr])
-        console.log('schedules filter : ', filter)
-        // console.log('pages', pages)
-        // console.log('updated....')
-      })
+      // }
+      // setTimeout(() => { fetchdata(); }, 3000);
+      
+      dispatch({ type: "USER", payload: true })
+      setSchedule([...data.schedules])
+      console.log('schedules : ', data.schedules)
+      console.log('schedules data : ', schedules)
+      // setFilter([...data])
+      
+      let pages = Math.ceil(data.schedules.length / limit)
+      let pagearr = []
+      for (let i = 1; i <= pages; i++) {
+        pagearr.push(i)
+      }
+      setPages(pagearr)
+      let si = (currpage - 1) * limit
+      let ei = si + limit
+      
+      let filterArr = schedules.slice(si, ei)
+      setFilter([...filterArr])
+      console.log('schedules filter : ', filter)
+      // console.log('pages', pages)
+      // console.log('updated....')
     } catch (e) {
       console.log('error : ', e)
       navigate('/patient/login')
@@ -102,7 +94,7 @@ function PatientBookA() {
 
   useEffect(() => {
     checklogedin()
-    console.log('loaded ::::', schedules)
+    console.log('loaded ::::',schedules)
   }, [])
 
   useEffect(() => {
@@ -139,7 +131,7 @@ function PatientBookA() {
 
   return (
     <>
-      {console.log('react filter : ', filter)}
+      {console.log('react : ',schedules,'\n filter : ',filter)}
       <div className='container-box'>
         <div class="card shadow">
           <div class="card-header" style={{ display: 'flex' }}>
