@@ -67,11 +67,17 @@ function PatientBookA() {
       // setTimeout(() => { fetchdata(); }, 3000);
       
       dispatch({ type: "USER", payload: true })
-      setSchedule(data.schedules)
       console.log('schedules : ', data.schedules)
-      console.log('schedules data : ', schedules)
-      // setFilter([...data])
-      
+
+      setTimeout(() => { 
+        setSchedule(data.schedules)
+        console.log('schedules data : ', schedules)
+
+        let filterArr = schedules.slice(0, 10)
+        setFilter([...filterArr])
+        console.log('schedules filter : ', filter) 
+      }, 2000);
+
       let pages = Math.ceil(data.schedules.length / limit)
       let pagearr = []
       for (let i = 1; i <= pages; i++) {
@@ -81,10 +87,10 @@ function PatientBookA() {
       let si = (currpage - 1) * limit
       let ei = si + limit
       
-      let filterArr = schedules.slice(si, ei)
-      setFilter([...filterArr])
-      console.log('schedules filter : ', filter)
-      // console.log('pages', pages)
+      // let filterArr = schedules.slice(si, ei)
+      // setFilter([...filterArr])
+      // console.log('schedules filter : ', filter) 
+     
       // console.log('updated....')
     } catch (e) {
       console.log('error : ', e)
