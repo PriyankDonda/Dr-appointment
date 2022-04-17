@@ -136,14 +136,12 @@ function PatientBookA() {
       {
 
         filter.length === 0 ?
-          <div class="spinner-border text-primary " role="status">
-            <span class="visually-hidden d-flex justify-content-center" style={{margin:'20px auto'}}>Loading...</span>
-            
-            {
-              schedules.length!==0 ?
-            setFilter(schedules):
-            null}
-          </div> 
+          <div className='d-flex justify-content-center'>
+            <div class="spinner-border text-primary " role="status">
+              <span class="visually-hidden ">Loading...</span>
+              { schedules.length !== 0 ? setFilter(schedules) : null }
+            </div>
+          </div>
           :
           <div className='container-box'>
             <div class="card shadow">
