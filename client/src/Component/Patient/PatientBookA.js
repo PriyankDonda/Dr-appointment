@@ -134,11 +134,17 @@ function PatientBookA() {
     <>
       {/* {console.log('react : ',schedules,'\n filter : ',filter)} */}
       {
+
         filter.length === 0 ?
           <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
-            {/* {setFilter(schedules)} */}
-          </div> :
+            <span class="visually-hidden position-absolute top-50 start-50">Loading...</span>
+            
+            {
+              schedules.length!==0 ?
+            setFilter(schedules):
+            null}
+          </div> 
+          :
           <div className='container-box'>
             <div class="card shadow">
               <div class="card-header" style={{ display: 'flex' }}>
