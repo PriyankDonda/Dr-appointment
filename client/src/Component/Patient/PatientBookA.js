@@ -136,8 +136,8 @@ function PatientBookA() {
       {
 
         filter.length === 0 ?
-          <div class="spinner-border text-primary position-relative" role="status">
-            <span class="visually-hidden position-absolute top-50 start-50 translate-middle">Loading...</span>
+          <div class="spinner-border text-primary d-flex justify-content-center" role="status">
+            <span class="visually-hidden ">Loading...</span>
             
             {
               schedules.length!==0 ?
