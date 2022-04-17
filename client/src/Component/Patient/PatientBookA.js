@@ -136,7 +136,7 @@ function PatientBookA() {
       {
         filter.length===0 ? <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
-          {setFilter(schedules) && console.log('filter --- ',filter)}
+          {setFilter(schedules)}
       </div> :
       <div className='container-box'>
         <div class="card shadow">
