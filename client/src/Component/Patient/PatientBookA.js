@@ -55,7 +55,7 @@ function PatientBookA() {
       }
 
       setpatient(data.patient)
-      // console.log(patient)
+      console.log(patient)
       // data = data.schedules
       // let datas = []
       // const fetchdata = async () =>{
@@ -68,6 +68,7 @@ function PatientBookA() {
       
       dispatch({ type: "USER", payload: true })
       setSchedule(data.schedules)
+      console.log('schedules : ', data.schedules)
       console.log('schedules data : ', schedules)
       // setFilter([...data])
       
