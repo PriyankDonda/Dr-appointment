@@ -54,8 +54,6 @@ function PatientBookA() {
         throw new Error(res.error)
       }
 
-      return data
-
       setpatient(data.patient)
       console.log(patient)
       // data = data.schedules
@@ -95,25 +93,8 @@ function PatientBookA() {
   }
 
   useEffect(() => {
-    let data = checklogedin()
-    setpatient(data.patient)
-    dispatch({ type: "USER", payload: true })
-    setSchedule([...data.schedules])
-
-    let pages = Math.ceil(data.schedules.length / limit)
-      let pagearr = []
-      for (let i = 1; i <= pages; i++) {
-        pagearr.push(i)
-      }
-      setPages(pagearr)
-      let si = (currpage - 1) * limit
-      let ei = si + limit
-      
-      let filterArr = schedules.slice(si, ei)
-      setFilter([...filterArr])
-      console.log('patient : ',patient)
-      console.log('schedules : ', data.schedules)
-      console.log('schedules filter : ', filter)
+    checklogedin()
+    console.log('loaded ::::',schedules)
   }, [])
 
   useEffect(() => {
@@ -127,7 +108,7 @@ function PatientBookA() {
     let ei = si + limit
     let filterArr = schedules.slice(si, ei)
     setFilter([...filterArr])
-    console.log('pages...', pages)
+    // console.log('pages...', pages)
   }, [limit, currpage])
 
   useEffect(() => {
@@ -150,7 +131,7 @@ function PatientBookA() {
 
   return (
     <>
-      {console.log('\nreact filter : ',filter)}
+      {console.log('react : ',schedules,'\n filter : ',filter)}
       <div className='container-box'>
         <div class="card shadow">
           <div class="card-header" style={{ display: 'flex' }}>
