@@ -133,7 +133,8 @@ function PatientBookA() {
     <>
       {console.log('react : ',schedules,'\n filter : ',filter)}
       {
-        !filter ? <div class="spinner-border text-primary" role="status">
+        filter===[] ? <div class="spinner-border text-primary" role="status">
+          {setCurrpage(1)}
         <span class="visually-hidden">Loading...</span>
       </div> :
       <div className='container-box'>
