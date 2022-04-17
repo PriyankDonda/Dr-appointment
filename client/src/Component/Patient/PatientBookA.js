@@ -130,7 +130,7 @@ function PatientBookA() {
 
   return (
     <>
-      {/* {console.log(schedules)} */}
+      {console.log('react : ',schedules,'\n filter : ',filter)}
       <div className='container-box'>
         <div class="card shadow">
           <div class="card-header" style={{ display: 'flex' }}>
