@@ -84,7 +84,7 @@ function PatientBookA() {
       // let filterArr = schedules.slice(si, ei)
       // setFilter([...filterArr])
       // console.log('schedules filter : ', filter)
-      
+
       // console.log('pages', pages)
       // console.log('updated....')
     } catch (e) {
@@ -95,7 +95,7 @@ function PatientBookA() {
 
   useEffect(() => {
     checklogedin()
-    console.log('loaded ::::',schedules)
+    // console.log('loaded ::::',schedules)
   }, [])
 
   useEffect(() => {
@@ -132,11 +132,11 @@ function PatientBookA() {
 
   return (
     <>
-      {console.log('react : ',schedules,'\n filter : ',filter)}
+      {/* {console.log('react : ',schedules,'\n filter : ',filter)} */}
       {
-        filter===[] ? <div class="spinner-border text-primary" role="status">
-          {setCurrpage(1)}
+        filter.length===0 ? <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Loading...</span>
+          {setFilter(schedules) && console.log('filter --- ',filter)}
       </div> :
       <div className='container-box'>
         <div class="card shadow">
